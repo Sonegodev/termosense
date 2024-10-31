@@ -93,7 +93,7 @@ class _CadastroState extends State<Cadastro> {
                   TextField(
                     obscureText: isObscured,
                     decoration: InputDecoration(
-                      labelText: 'Confirmar Senha',
+                      labelText: 'Confirme sua senha',
                       border: null,
                       filled: true,
                       fillColor: AppColors.branco,
