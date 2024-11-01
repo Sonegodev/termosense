@@ -14,7 +14,7 @@ class ListaFuncionarios extends StatefulWidget {
 
 class _ListaFuncionariosState extends State<ListaFuncionarios> {
   @override
-  void initState() {
+  void initState() { 
     super.initState();
     Provider.of<FuncionarioProvider>(context, listen: false)
         .fetchFuncionarios();

@@ -71,7 +71,7 @@ class _ListaAmbientesState extends State<ListaAmbientes> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DetalhesSala(idAmbiente: ambiente.idAmbiente),
+                            builder: (context) => DetalhesSala(idAmbiente: ambiente.idAmbiente, nomeAmbiente: ambiente.nomeAmbiente,),
                           ),
                         );
                       },
@@ -112,7 +112,9 @@ class _ListaAmbientesState extends State<ListaAmbientes> {
                           );
                         }
                       },
+                      
                       icon: const Icon(Icons.delete),
+
                     ),
                   ],
                 ),

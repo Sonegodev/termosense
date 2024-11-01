@@ -23,8 +23,8 @@ class TemperaturaProvider with ChangeNotifier {
     }
   }
 
-  Future<void> fetchTemperaturas() async {
-    final url = Uri.parse('https://temmaxima.azurewebsites.net/api/Temperatura');
+  Future<void> fetchTemperaturas(int idambiente) async {
+    final url = Uri.parse('https://temmaxima.azurewebsites.net/api/Temperatura/$idambiente');
     
     _carregando = true;
     notifyListeners();
@@ -44,6 +44,7 @@ class TemperaturaProvider with ChangeNotifier {
       if (response.statusCode == 200) {
         List<dynamic> data = json.decode(response.body);
         _temperaturas = data.map((json) => Temperatura.fromJson(json)).toList();
+
         _mensagem = null;
       } else {
         _mensagem = 'Erro ao carregar dados: ${response.statusCode}';

@@ -12,11 +12,11 @@ class DetalhesSala extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => TemperaturaProvider()..fetchTemperaturas(),
+      create: (_) => TemperaturaProvider()..fetchTemperaturas(idAmbiente),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.branco,
-          title: Text("Detalhes da Sala $nomeAmbiente"),
+          title: Text("Detalhes da $nomeAmbiente"),
         ),
         backgroundColor: AppColors.branco,
         body: Consumer<TemperaturaProvider>(

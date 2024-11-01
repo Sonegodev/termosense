@@ -16,7 +16,7 @@ class Temperatura {
       idTemperatura: json['idTemperatura'],
       temperatura: json['temperatura'],
       horarioTemp: json['horarioTemp'],
-      idAmbiente: json['id_ambiente'],
+      idAmbiente: json['idAmbiente'],
     );
   }
 }

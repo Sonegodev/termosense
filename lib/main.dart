@@ -24,7 +24,7 @@ void main() {
       routes: {
         '/': (context) => const Homepage(),
         '/login': (context) => const Login(),
-        '/salas': (context) => Sala(),
+        '/salas': (context) => const Sala(),
         '/cadastro': (context) => const Cadastro(),
         '/cadsala': (context) => const CadastroAmbiente(),
         '/cadfunc': (context) => const CadastroFunc(),
