@@ -29,4 +29,6 @@ class Funcionario {
       adm: json['type_adm'],
     );
   }
+
+  get idAmbiente => null;
 }

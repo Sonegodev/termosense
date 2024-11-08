@@ -135,6 +135,7 @@ class _CadastroAmbienteState extends State<CadastroAmbiente> {
                               idFuncionario: _selectedFuncionario!
                                   .idFunc,
                             );
+
                             final usuarioAmbienteProvider =
                                 Provider.of<UsuarioAmbienteProvider>(context,
                                     listen: false);
