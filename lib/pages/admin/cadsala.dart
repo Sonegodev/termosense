@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:termosense/Models/sala.dart';
+import 'package:termosense/Models/func.dart';
+import 'package:termosense/Models/userambiente.dart';
+import 'package:termosense/Provider/adm/funcprovider.dart';
 import 'package:termosense/Provider/adm/salaprovider.dart';
+import 'package:termosense/Provider/adm/userambprovider.dart';
 import 'package:termosense/Utils/mensagem.dart';
 import 'package:termosense/style/colors.dart';
 
@@ -16,14 +20,20 @@ class CadastroAmbiente extends StatefulWidget {
 
 class _CadastroAmbienteState extends State<CadastroAmbiente> {
   final _nomeController = TextEditingController();
+  Funcionario?
+      _selectedFuncionario; // Variável para armazenar o funcionário selecionado
 
   @override
   void initState() {
     super.initState();
     if (widget.ambiente != null) {
-    _nomeController.text = widget.ambiente!.nomeAmbiente;
+      _nomeController.text = widget.ambiente!.nomeAmbiente;
+    }
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<FuncionarioProvider>(context, listen: false)
+          .fetchFuncionarios();
+    });
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +58,34 @@ class _CadastroAmbienteState extends State<CadastroAmbiente> {
                 filled: true,
                 fillColor: AppColors.branco,
               ),
+            ),
+            const SizedBox(height: 20),
+            Consumer<FuncionarioProvider>(
+              builder: (context, funcionarioProvider, child) {
+                if (funcionarioProvider.carregando) {
+                  return const CircularProgressIndicator();
+                }
+                if (funcionarioProvider.funcionarios.isEmpty) {
+                  return const Text('Nenhum funcionário encontrado.');
+                }
+                return DropdownButton<Funcionario>(
+                  value: _selectedFuncionario,
+                  hint: const Text('Selecione um Funcionário'),
+                  isExpanded: true,
+                  onChanged: (Funcionario? novoFuncionario) {
+                    setState(() {
+                      _selectedFuncionario = novoFuncionario;
+                    });
+                  },
+                  items: funcionarioProvider.funcionarios.map((funcionario) {
+                    return DropdownMenuItem<Funcionario>(
+                      value: funcionario,
+                      child: Text(funcionario
+                          .nomeUsuario),
+                    );
+                  }).toList(),
+                );
+              },
             ),
             const SizedBox(height: 40),
             Consumer<AmbienteProvider>(builder: (context, salaProvider, child) {
@@ -75,12 +113,34 @@ class _CadastroAmbienteState extends State<CadastroAmbiente> {
                       ),
                       child: ElevatedButton(
                         onPressed: () async {
-                          final ambiente = Ambiente(idAmbiente: 0, nomeAmbiente: _nomeController.text);
+                          final ambiente = Ambiente(
+                            idAmbiente: 0,
+                            nomeAmbiente: _nomeController.text,
+                          );
                           await salaProvider.cadastrarAmbiente(ambiente);
                           if (salaProvider.cadastrado == true) {
                             _nomeController.clear();
                           }
-                          showMessage(message: salaProvider.mensagem , context: context);
+                          showMessage(
+                            message: salaProvider.mensagem,
+                            context: context,
+                          );
+
+                          if (salaProvider.idAmbienteCadastrado != null &&
+                              _selectedFuncionario != null) {
+                            final usuarioAmbiente = UsuarioAmbiente(
+                              idUsuarioAmbiente: 0,
+                              idAmbiente: salaProvider
+                                  .idAmbienteCadastrado!,
+                              idFuncionario: _selectedFuncionario!
+                                  .idFunc,
+                            );
+                            final usuarioAmbienteProvider =
+                                Provider.of<UsuarioAmbienteProvider>(context,
+                                    listen: false);
+                            await usuarioAmbienteProvider
+                                .cadastrarUsuarioAmbiente(usuarioAmbiente);
+                          }
                         },
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size(double.infinity, 50),

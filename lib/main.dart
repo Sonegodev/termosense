@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:termosense/Provider/adm/funcprovider.dart';
 import 'package:termosense/Provider/adm/salaprovider.dart';
+import 'package:termosense/Provider/adm/userambprovider.dart';
 import 'package:termosense/Provider/login/loginuser.dart';
 import 'package:termosense/pages/admin/listsala.dart';
 import 'package:termosense/pages/homepage.dart';
@@ -18,6 +19,8 @@ void main() {
       ChangeNotifierProvider(create: (_) => Logar()),
       ChangeNotifierProvider(create: (_) => AmbienteProvider()),
       ChangeNotifierProvider(create: (_) => FuncionarioProvider()),
+      ChangeNotifierProvider(create: (_) => UsuarioAmbienteProvider()),
+
     ],
     child: MaterialApp(
       initialRoute: '/',

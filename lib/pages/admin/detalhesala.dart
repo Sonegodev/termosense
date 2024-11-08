@@ -16,7 +16,7 @@ class DetalhesSala extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.branco,
-          title: Text("Detalhes da $nomeAmbiente"),
+          title: Text("Detalhes da sala $nomeAmbiente"),
         ),
         backgroundColor: AppColors.branco,
         body: Consumer<TemperaturaProvider>(

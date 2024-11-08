@@ -38,7 +38,7 @@ class Logar extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future logarUsuario(String email, String password) async {
+  Future logarUsuario(String email, String password, {bool stayConnected = false}) async {
     _carregando = true;
     notifyListeners();
     String url = '${AppUrl.baseUrl}api/UserLogin/Login';
@@ -70,6 +70,11 @@ class Logar extends ChangeNotifier {
         await ds.gravarToken(dados['token']);
         await ds.gravarNivel(dados['roles'][0]);
 
+        // Armazena estado de "continuar conectado"
+        if (stayConnected) {
+          await idUser.setBool('stayConnected', true);
+        }
+
         if (dados['roles'][0] == "Basic") {
           _rota = "/salas";
         } else {
@@ -85,10 +90,21 @@ class Logar extends ChangeNotifier {
       }
     } catch (e) {
       _msgError = "Erro ao tentar conectar ao serviço!";
-     notifyListeners();
+      notifyListeners();
     }
   }
 
+  Future<bool> verificarSessao() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('stayConnected') ?? false;
+  }
+
+  void deslogar() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+    _logado = false;
+    notifyListeners();
+  }
 
   Future confirmarUsuario(String email, String password, String cpf) async {
     _carregando = true;
@@ -126,8 +142,7 @@ class Logar extends ChangeNotifier {
       }
     } catch (e) {
       _msgError = "Erro ao tentar conectar ao serviço!";
-     notifyListeners();
+      notifyListeners();
     }
   }
 }
-

@@ -18,6 +18,8 @@ class AmbienteProvider with ChangeNotifier {
   List<Ambiente> get ambientes => _ambientes;
 
   String? _token;
+  int? _idAmbienteCadastrado; // Variável para armazenar o ID do ambiente cadastrado
+  int? get idAmbienteCadastrado => _idAmbienteCadastrado; // Getter para acessar o ID do ambiente
 
   Future<void> pegarToken() async {
     var dados = await SharedPreferences.getInstance();
@@ -45,6 +47,8 @@ class AmbienteProvider with ChangeNotifier {
       );
 
       if (response.statusCode == 200 || response.statusCode == 201) {
+        final responseData = json.decode(response.body);
+        _idAmbienteCadastrado = responseData['idAmbiente']; // Captura o ID do ambiente, ajuste conforme a estrutura da resposta
         _cadastrado = true;
         _mensagem = "Sala Cadastrada com sucesso!";
       } else {
