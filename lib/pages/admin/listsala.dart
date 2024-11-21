@@ -71,7 +71,10 @@ class _ListaAmbientesState extends State<ListaAmbientes> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DetalhesSala(idAmbiente: ambiente.idAmbiente, nomeAmbiente: ambiente.nomeAmbiente,),
+                            builder: (context) => DetalhesSala(
+                              idAmbiente: ambiente.idAmbiente,
+                              nomeAmbiente: ambiente.nomeAmbiente,
+                            ),
                           ),
                         );
                       },
@@ -112,9 +115,13 @@ class _ListaAmbientesState extends State<ListaAmbientes> {
                           );
                         }
                       },
-                      
                       icon: const Icon(Icons.delete),
-
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/autfunc');
+                      },
+                      icon: const Icon(Icons.person), // Ícone de usuário
                     ),
                   ],
                 ),

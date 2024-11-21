@@ -4,6 +4,8 @@ import 'package:termosense/Provider/adm/funcprovider.dart';
 import 'package:termosense/Provider/adm/salaprovider.dart';
 import 'package:termosense/Provider/adm/userambprovider.dart';
 import 'package:termosense/Provider/login/loginuser.dart';
+import 'package:termosense/pages/admin/autfunc.dart';
+import 'package:termosense/pages/admin/editarsala.dart';
 import 'package:termosense/pages/admin/listsala.dart';
 import 'package:termosense/pages/homepage.dart';
 import 'package:termosense/pages/login.dart';
@@ -32,7 +34,9 @@ void main() {
         '/cadsala': (context) => const CadastroAmbiente(),
         '/cadfunc': (context) => const CadastroFunc(),
         '/listafunc': (context) => const ListaFuncionarios(),
-        '/listasala': (context) => const ListaAmbientes()
+        '/listasala': (context) => const ListaAmbientes(),
+        '/autfunc': (context) => const AutorizarFuncionario(),
+        '/editarsala': (context) => const Editarsala()
       },
       debugShowCheckedModeBanner: false,
     ),

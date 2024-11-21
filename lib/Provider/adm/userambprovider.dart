@@ -76,5 +76,7 @@ class UsuarioAmbienteProvider with ChangeNotifier {
       _carregando = false;
       notifyListeners();
     }
+
+    debugPrint(token);
   }
 }

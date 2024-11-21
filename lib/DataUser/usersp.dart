@@ -10,9 +10,9 @@ class GetId {
 
   GetId(this.usuario);
 
-  Future<void> gravarId(int value) async {
+Future<void> gravarId(int value) async {
     await usuario.setInt(idUser, value);
-  }
+}
 
 
 int pegarId() {

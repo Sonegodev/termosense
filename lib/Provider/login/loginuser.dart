@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:termosense/Constrain/url.dart';
 import 'package:http/http.dart' as http;
 import 'package:termosense/DataUser/usersp.dart';
@@ -69,6 +70,12 @@ class Logar extends ChangeNotifier {
         var ds = GetId(idUser);
         await ds.gravarToken(dados['token']);
         await ds.gravarNivel(dados['roles'][0]);
+
+         Map<String, dynamic> decodedToken = JwtDecoder.decode(dados['token']);
+ 
+        final idUsuario = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
+        ds.gravarId(int.parse(idUsuario));
+
 
         // Armazena estado de "continuar conectado"
         if (stayConnected) {
