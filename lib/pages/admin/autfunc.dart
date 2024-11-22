@@ -22,7 +22,8 @@ class _AutorizarFuncionarioState extends State<AutorizarFuncionario> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<FuncionarioProvider>(context, listen: false).fetchFuncionarios();
+      Provider.of<FuncionarioProvider>(context, listen: false)
+          .fetchFuncionarios();
       Provider.of<AmbienteProvider>(context, listen: false).fetchAmbientes();
     });
   }
@@ -105,16 +106,20 @@ class _AutorizarFuncionarioState extends State<AutorizarFuncionario> {
             Consumer<UsuarioAmbienteProvider>(
               builder: (context, usuarioAmbienteProvider, child) {
                 return ElevatedButton(
-                  onPressed: (_selectedFuncionario == null || _selectedAmbienteId == null)
+                  onPressed: (_selectedFuncionario == null ||
+                          _selectedAmbienteId == null)
                       ? null
                       : () async {
-                          if (_selectedFuncionario != null && _selectedAmbienteId != null) {
-                            UsuarioAmbiente novoUsuarioAmbiente = UsuarioAmbiente(
+                          if (_selectedFuncionario != null &&
+                              _selectedAmbienteId != null) {
+                            UsuarioAmbiente novoUsuarioAmbiente =
+                                UsuarioAmbiente(
                               idAmbiente: _selectedAmbienteId!,
                               idFuncionario: _selectedFuncionario!.idFunc,
                             );
 
-                            await usuarioAmbienteProvider.cadastrarUsuarioAmbiente(novoUsuarioAmbiente);
+                            await usuarioAmbienteProvider
+                                .cadastrarUsuarioAmbiente(novoUsuarioAmbiente);
 
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
