@@ -118,7 +118,7 @@ class FuncionarioProvider with ChangeNotifier {
         if (funcionarioResponse.statusCode == 200) {
           final funcionarioData = json.decode(funcionarioResponse.body);
           final funcionario = Funcionario.fromJson(funcionarioData);
-          _funcionarios = [funcionario];  // Definindo o funcionário associado à sala
+          _funcionarios = [funcionario]; 
         } else {
           _menssagem = "Erro ao buscar funcionário associado.";
         }

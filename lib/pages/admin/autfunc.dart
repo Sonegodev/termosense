@@ -134,7 +134,7 @@ class _AutorizarFuncionarioState extends State<AutorizarFuncionario> {
                   ),
                   child: const Text(
                     'Cadastrar',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+                    style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 );
               },

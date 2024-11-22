@@ -6,6 +6,6 @@ class AppColors {
   static const Color azulTitulo = Color.fromRGBO(16, 116, 217, 1);
 
     static const Color azulDegrade1 = Color.fromRGBO(16, 116, 217, 1);
-    static const Color azulDegrade2 = Color.fromRGBO(214, 234, 255, 1);
+    static const Color azulDegrade2 = Color.fromRGBO(109, 180, 255, 1);
 
 }

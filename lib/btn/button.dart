@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:termosense/style/colors.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String text;
@@ -19,8 +20,8 @@ class CustomElevatedButton extends StatelessWidget {
           begin: Alignment.centerRight,
           end: Alignment.centerLeft,
           colors: [
-            Color.fromARGB(255, 75, 162, 255),
-            Color(0xFF4299E1), // Substitua por `AppColors.azulDegrade1` se estiver definido
+            AppColors.azulDegrade2,
+            AppColors.azulDegrade1
           ],
         ),
         boxShadow: [
