@@ -32,7 +32,11 @@ class _AutorizarFuncionarioState extends State<AutorizarFuncionario> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Autorizar Funcionário'),
-        backgroundColor: AppColors.azulDegrade1,
+        backgroundColor: AppColors.branco,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset('assets/images/icon.png'),
+        ),
       ),
       backgroundColor: AppColors.branco,
       body: Padding(

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:termosense/Provider/adm/funcprovider.dart';
 import 'package:termosense/Utils/mensagem.dart';
 import 'package:termosense/pages/admin/cadastrofunc.dart';
+import 'package:termosense/pages/admin/editarfunc.dart';
 import 'package:termosense/style/colors.dart';
 
 class ListaFuncionarios extends StatefulWidget {
@@ -24,12 +25,14 @@ class _ListaFuncionariosState extends State<ListaFuncionarios> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Lista de Funcionários'),
         backgroundColor: AppColors.branco,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Image.asset('assets/images/icon.png'),
         ),
       ),
+      backgroundColor: AppColors.branco,
       body: Consumer<FuncionarioProvider>(
         builder: (context, funcionariop, child) {
           if (funcionariop.funcionarios.isEmpty) {
@@ -50,7 +53,7 @@ class _ListaFuncionariosState extends State<ListaFuncionarios> {
                         Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => CadastroFunc(
+                                        builder: (context) => Editarfunc(
                                             funcionario: funcionario),
                                       ),
                                     );

@@ -20,7 +20,7 @@ class _CadastroFuncState extends State<CadastroFunc> {
   final _emailController = TextEditingController();
   final _senhaController = TextEditingController();
   final _cpfController = TextEditingController();
-  bool isObscured = true; 
+  bool isObscured = true;
 
   @override
   void initState() {
@@ -39,11 +39,13 @@ class _CadastroFuncState extends State<CadastroFunc> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.branco,
+        title: const Text('Cadastro Funcionário'),
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Image.asset('assets/images/icon.png'),
         ),
       ),
+      backgroundColor: AppColors.branco,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -125,7 +127,8 @@ class _CadastroFuncState extends State<CadastroFunc> {
                 },
               ),
               const SizedBox(height: 20),
-              Consumer<FuncionarioProvider>(builder: (context, provider, child) {
+              Consumer<FuncionarioProvider>(
+                  builder: (context, provider, child) {
                 return Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
@@ -170,7 +173,8 @@ class _CadastroFuncState extends State<CadastroFunc> {
                         _emailController.clear();
                         _senhaController.clear();
                         _cpfController.clear();
-                        showMessage(message: provider.menssagem, context: context);
+                        showMessage(
+                            message: provider.menssagem, context: context);
                         Navigator.pop(context);
                       }
                     },

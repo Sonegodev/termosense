@@ -4,6 +4,7 @@ import 'package:termosense/Provider/adm/salaprovider.dart';
 import 'package:termosense/Utils/mensagem.dart';
 import 'package:termosense/pages/admin/cadsala.dart';
 import 'package:termosense/pages/admin/detalhesala.dart';
+import 'package:termosense/pages/admin/editarsala.dart';
 import 'package:termosense/style/colors.dart';
 
 class ListaAmbientes extends StatefulWidget {
@@ -24,6 +25,7 @@ class _ListaAmbientesState extends State<ListaAmbientes> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Lista de Salas'),
         backgroundColor: AppColors.branco,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -35,6 +37,18 @@ class _ListaAmbientesState extends State<ListaAmbientes> {
               Navigator.of(context).pushNamed('/cadsala');
             },
             icon: const Icon(Icons.add),
+          ),
+            IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/listafunc');
+                      },
+                      icon: const Icon(Icons.person), // Ícone de usuário
+                    ),
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('/autfunc');
+            },
+            icon: const Icon(Icons.person_add), // Ícone de usuário
           ),
         ],
       ),
@@ -60,7 +74,7 @@ class _ListaAmbientesState extends State<ListaAmbientes> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                CadastroAmbiente(ambiente: ambiente),
+                                Editarsala(ambiente: ambiente),
                           ),
                         );
                       },
@@ -116,12 +130,6 @@ class _ListaAmbientesState extends State<ListaAmbientes> {
                         }
                       },
                       icon: const Icon(Icons.delete),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed('/autfunc');
-                      },
-                      icon: const Icon(Icons.person), // Ícone de usuário
                     ),
                   ],
                 ),

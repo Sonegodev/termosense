@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:termosense/Models/func.dart';
+import 'package:termosense/Models/sala.dart';
 import 'package:termosense/Provider/adm/funcprovider.dart';
 import 'package:termosense/Provider/adm/salaprovider.dart';
 import 'package:termosense/Provider/adm/userambprovider.dart';
 import 'package:termosense/Provider/login/loginuser.dart';
 import 'package:termosense/pages/admin/autfunc.dart';
+import 'package:termosense/pages/admin/editarfunc.dart';
 import 'package:termosense/pages/admin/editarsala.dart';
 import 'package:termosense/pages/admin/listsala.dart';
 import 'package:termosense/pages/homepage.dart';
@@ -36,7 +39,15 @@ void main() {
         '/listafunc': (context) => const ListaFuncionarios(),
         '/listasala': (context) => const ListaAmbientes(),
         '/autfunc': (context) => const AutorizarFuncionario(),
-        '/editarsala': (context) => const Editarsala()
+        '/editarsala': (context) {
+          final ambiente =
+              ModalRoute.of(context)!.settings.arguments as Ambiente;
+          return Editarsala(ambiente: ambiente);
+        },
+        '/editarfunc': (context) {
+          final funcionario = ModalRoute.of(context)!.settings.arguments as Funcionario;
+          return Editarfunc(funcionario: funcionario);
+        },
       },
       debugShowCheckedModeBanner: false,
     ),

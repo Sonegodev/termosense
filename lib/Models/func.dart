@@ -8,6 +8,24 @@ class Funcionario {
 
    Funcionario({required this.idFunc, required this.nomeUsuario, required this.email, required this.senha, required this.cpf, required this.adm});
 
+ Funcionario copyWith({
+    int? idFunc,
+    String? nomeUsuario,
+    String? email,
+    String? senha,
+    String? cpf,
+    bool? adm,
+  }) {
+    return Funcionario(
+      idFunc: idFunc ?? this.idFunc,
+      nomeUsuario: nomeUsuario ?? this.nomeUsuario,
+      email: email ?? this.email,
+      senha: senha ?? this.senha,
+      cpf: cpf ?? this.cpf,
+      adm: adm ?? this.adm,
+    );
+  }
+
   Map<String, dynamic> toJson () {
     return {
       "idFuncionario": idFunc,

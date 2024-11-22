@@ -27,6 +27,10 @@ class DetalhesSala extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: AppColors.branco,
           title: Text("Detalhes da sala $nomeAmbiente"),
+          leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset('assets/images/icon.png'),
+        ),
         ),
         backgroundColor: AppColors.branco,
         body: Consumer3<TemperaturaProvider, FuncionarioProvider, UsuarioAmbienteProvider>(

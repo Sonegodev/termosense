@@ -29,6 +29,7 @@ class _CadastroAmbienteState extends State<CadastroAmbiente> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Cadastro de Sala'),
         backgroundColor: AppColors.branco,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),

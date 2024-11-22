@@ -4,6 +4,16 @@ class Ambiente {
 
   Ambiente({required this.idAmbiente, required this.nomeAmbiente});
 
+  Ambiente copyWith({
+    int? idAmbiente,
+    String? nomeAmbiente,
+  }) {
+    return Ambiente(
+      idAmbiente: idAmbiente ?? this.idAmbiente,
+      nomeAmbiente: nomeAmbiente ?? this.nomeAmbiente,
+    );
+  }
+
   Map<String, dynamic> toJson() {
     return {
       'idAmbiente': idAmbiente,
