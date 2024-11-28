@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:termosense/Models/func.dart';
 import 'package:termosense/Models/userambiente.dart';
-import 'package:termosense/Provider/adm/userambprovider.dart';
 
 class FuncionarioProvider with ChangeNotifier {
   bool _cadastrado = false;

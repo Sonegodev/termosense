@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:termosense/Provider/adm/salaprovider.dart';
 import 'package:termosense/Utils/mensagem.dart';
-import 'package:termosense/pages/admin/cadsala.dart';
 import 'package:termosense/pages/admin/detalhesala.dart';
 import 'package:termosense/pages/admin/editarsala.dart';
 import 'package:termosense/style/colors.dart';

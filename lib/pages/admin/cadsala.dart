@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:termosense/Models/sala.dart';
 import 'package:termosense/Provider/adm/salaprovider.dart';
 import 'package:termosense/Utils/mensagem.dart';
-import 'package:termosense/pages/usuario/sala.dart';
 import 'package:termosense/style/colors.dart';
 
 class CadastroAmbiente extends StatefulWidget {
