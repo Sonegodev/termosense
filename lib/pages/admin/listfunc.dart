@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:termosense/Provider/adm/funcprovider.dart';
 import 'package:termosense/Utils/mensagem.dart';
-import 'package:termosense/pages/admin/cadastrofunc.dart';
 import 'package:termosense/pages/admin/editarfunc.dart';
 import 'package:termosense/style/colors.dart';
 
@@ -25,6 +24,14 @@ class _ListaFuncionariosState extends State<ListaFuncionarios> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('/cadfunc');
+            }, 
+            icon: const Icon(Icons.add)
+          )
+        ],
         title: const Text('Lista de Funcionários'),
         backgroundColor: AppColors.branco,
         leading: Padding(
