@@ -1,16 +1,7 @@
 # termosense
 
-A new Flutter project.
+## projeto desenvolvido em dart com Flutter, para web e android. 
 
-## Getting Started
+aplicação CRUD de cadastro de ar condicionado em salas de escritório, visando deixar o controlo do ar condicionado a um usuário responsável pela sala. o usuário master pode cadastrar ar condicionado, cadastrar funcionário, editar funcionário, excluir funcionário e editar temperatura do ar
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+desenvolvido por [Sonegodev](https://github.com/Sonegodev)
